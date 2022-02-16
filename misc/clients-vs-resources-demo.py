@@ -5,7 +5,7 @@ import boto3
 
 # TODO: provide BUCKET_NAME
 
-bucketname = "BUCKET_NAME"
+bucketname = "dev-demos-bg01"
 
 def listClient():
     s3client = boto3.client('s3')
@@ -15,7 +15,7 @@ def listClient():
     # print (response)
     # print ("Unformatted Contents:\n",response['Contents'],"\n\n")
     for content in response['Contents']:
-        print("Object/Filename:  "+content['Key'],content['LastModified'])
+        print("modified:  ",content['LastModified'],"   key:  ",content['Key'])
 
 listClient()
 
@@ -29,6 +29,6 @@ def listResource():
     bucket = s3resource.Bucket(bucketname)
     print("\n\nUsing Resource API: \n")
     for object in bucket.objects.all():
-        print("Object/Filename:  "+object.key, object.last_modified)
+        print("modified:  ",object.last_modified,"   key:  ",object.key)
 
 listResource()
