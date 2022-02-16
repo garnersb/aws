@@ -5,7 +5,7 @@ import boto3
 
 # TODO: provide BUCKET_NAME
 
-bucketname = "dev-demos-bg01"
+bucketname = "BUCKET_NAME"
 
 def listClient():
     s3client = boto3.client('s3')
